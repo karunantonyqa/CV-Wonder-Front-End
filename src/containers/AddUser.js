@@ -5,12 +5,31 @@ import NavbarFeatures from './NavBarFeatures';
 
 class AddUser extends Component {   
 
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          emailstr: "",
+          passstr: "",
+          name:"",
+          role:"",
+          city:"",
+          redirectPath: "",
+          isAuthenticated: false
+
+        };
+    }
+
+    validateForm() {
+        return this.state.emailstr.length > 0 && this.state.passstr.length > 0;
+    }
+
 
     handleSubmit(event) {
         var emailstr =  document.getElementById('emailStr').value;
         var passstr = document.getElementById('passStr').value;
         var name = document.getElementById('name').value;
-        var role = document.getElementById('role').value;
+        var role = document.getElementById('roleSelect').value;
         var city = document.getElementById('city').value;
      
      
@@ -46,52 +65,52 @@ class AddUser extends Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                <FormGroup controlId="name" bsSize="large">
+                <FormGroup controlId="name" bsSize="sm">
                     <ControlLabel>Name</ControlLabel>
                     <FormControl
                         autoFocus
-                         type="name"
-                        //  value={this.state.name}
-                        //  onChange={this.handleChange}
+                        type="name"
+                        value={this.state.name}
+                        onChange={this.handleChange}
                      />
                 </FormGroup>
                 
-                <FormGroup controlId="email" bsSize="large">
+                <FormGroup controlId="emailStr" bsSize="sm">
                     <ControlLabel>Email</ControlLabel>
                     <FormControl
-                         type="emailstr"
-                        //  value={this.state.emailstr}
-                        //  onChange={this.handleChange}
+                         type="emailStr"
+                         value={this.state.emailstr}
+                         onChange={this.handleChange}
                      />
                 </FormGroup>
                 
-                <FormGroup controlId="passstr" bsSize="large">
+                <FormGroup controlId="passStr" bsSize="sm">
                     <ControlLabel>Password</ControlLabel>
                      <FormControl
-                        // value={this.state.passstr}
-                        // onChange={this.handleChange}
-                        type="passstr"
+                        value={this.state.passstr}
+                        onChange={this.handleChange}
+                        type="passStr"
                     />
                 </FormGroup>
 
 
-                <FormGroup controlId="role" bsSize="large">
+                <FormGroup controlId="role" bsSize="sm">
                     <ControlLabel>Role</ControlLabel>
                     <select class="form-control" id="roleSelect">
                          <option>Trainee</option>
                           <option>Trainer</option>
                            <option>Sales</option>
                        <option>Manager</option>
-    </select>
+                     </select>
                 </FormGroup>
-          <Button
-            block
-            bsSize="large"
-            // disabled={!this.validateForm()}
-            type="submit"
-          >
-            Register
-          </Button>
+                <Button
+                    block
+                    bsSize="sm"
+                    disabled={!this.validateForm()}
+                    type="submit"
+                    >
+                    Register
+                </Button>
         </form>
       </div>
 

@@ -1,74 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Table } from "react-bootstrap";
+
+
 
 class TraineeTable extends Component {
     constructor(props) {
-
         super(props);
-        
-        this.state = { allPeople: [] };
-        
-        }
-        
-        componentDidMount() {
-        
+        this.state = { allPeople: [] 
+        };
+    }
+
+    componentDidMount() {
         let request = new XMLHttpRequest();
-        
-        request.open("GET", "http://192.168.1.129:8090/api/people");
-        
+        request.open("GET", "http://localhost:8090/api/people");
         request.setRequestHeader("Content-Type", "application/json");
-        
         request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        
         request.responseType = "json";
-        
         request.send();
-        
-        
-        
         request.onload = () => {
-        
-        this.setState({ allPeople: request.response });
-        
+            this.setState({ allPeople: request.response });
         };
         
-        }
-        
-        render() {
-        
+    }
+    
+    render() {
         console.log(JSON.stringify(this.state.allPeople));
-        
         return (
-        
-        <table>
-        
-        <tbody>
-        
-        {this.state.allPeople.map(function(item, key) {
-        
-        return (
-        
-        <tr key={key}>
-        
-        <td>{item.email}</td>
-        
-        <td>{item.name}</td>
-        
-        <td>{item.role}</td>
-        
-        </tr>
-        
+            <Table bordered striped hover condensed>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>CVs</th>
+                    <th>Status</th>
+                    <th>Flag</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {this.state.allPeople
+                .filter(item => item.role === "trainee" || item.role === "Trainee")
+                .map(function(item, key) {
+                    return (
+                        <tr key={key}>
+                            <td>{item.name}</td>
+                            <td>{item.email}</td>
+                            <td>{item.cv}</td>
+                            <td>{item.state}</td>
+                            <td>Flag Button</td>
+                        </tr>
+                    );
+
+                })}
+
+            </tbody>
+
+        </Table>
         );
-        
-        })}
-        
-        </tbody>
-        
-        </table>
-        
-        );
-        
-        }
-        
+    }
 }
 
 export default TraineeTable;

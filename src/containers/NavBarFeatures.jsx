@@ -53,11 +53,11 @@ export default class NavbarFeatures extends React.Component {
                         </NavbarNav>
 
                         <NavbarNav right>
-                          {/* <NavItem>
+                          <NavItem>
                             <form className="form-inline md-form mt-0">
-                              <input className="form-control mr-sm-2 mb-0 text-white" type="text" placeholder="Search" aria-label="Search"/>
+                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Search" aria-label="Search"/>
                             </form>
-                          </NavItem> */}
+                          </NavItem>
 
                         <NavItem>
                               <NavLink to="/Contact">Contact</NavLink>

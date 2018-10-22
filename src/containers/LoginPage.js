@@ -116,10 +116,12 @@ class LoginPage extends Component {
 
           <NavbarFeatures class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
           </NavbarFeatures>
+
+          <h2>Login</h2>
           
           <div className="Login">
             <form onSubmit={this.handleSubmit}>
-              <FormGroup controlId="email" bsSize="large">
+              <FormGroup controlId="email" bsSize="sm">
                 <ControlLabel>Email</ControlLabel>
                 <FormControl
                   autoFocus
@@ -129,7 +131,7 @@ class LoginPage extends Component {
                   />
               </FormGroup>
         
-              <FormGroup controlId="password" bsSize="large">
+              <FormGroup controlId="password" bsSize="sm">
                 <ControlLabel>Password</ControlLabel>
                 <FormControl
                   value={this.state.password}
