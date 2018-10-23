@@ -15,7 +15,8 @@ class LoginPage extends Component {
           email: "",
           password: "",
           redirectPath: "",
-          isAuthenticated: false
+          isAuthenticated: false,
+          userId: ""
 
         };
     }
@@ -60,7 +61,7 @@ class LoginPage extends Component {
       var emailstr =  document.getElementById('email').value;
       var password = document.getElementById('password').value;
     
-      const url = "http://localhost:8090/api/login";
+      const url = "http://192.168.1.117:8090/api/login";
       
       var user = JSON.stringify({
           "email":emailstr,
@@ -76,12 +77,16 @@ class LoginPage extends Component {
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.setRequestHeader('Access-Control-Allow-Origin','*');
         xhttp.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, HEAD');
-        xhttp.responseType = 'text';
+        xhttp.responseType = 'json';
         xhttp.send(user);
         xhttp.onload = ()=>{
-          console.log(xhttp.responseText);
-          
-          this.setState({ redirectPath: xhttp.responseText });
+          console.log(xhttp.response.role);
+          console.log(xhttp.response.id)
+
+          xhttp.response.valueOf()          
+          this.setState({ redirectPath: xhttp.response.role });
+          this.setState({ userId: xhttp.response.id });
+
 
         }
         
