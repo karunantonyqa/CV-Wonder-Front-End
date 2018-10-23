@@ -19,6 +19,8 @@ export default class NavbarFeatures extends React.Component {
             collapse: !this.state.collapse,
         });
     }
+
+
     render() {
 
         var redirectPath = this.state.redirectPath;
@@ -30,6 +32,7 @@ export default class NavbarFeatures extends React.Component {
         if (redirectPath === "Trainee") {
           return <Redirect to="/Trainee" />;
         }
+
 
         return (
             <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain">
@@ -51,7 +54,9 @@ export default class NavbarFeatures extends React.Component {
                               <NavLink to="/AddUser">Add User</NavLink>
                           </NavItem>                          
                         </NavbarNav>
-
+                        
+                        {}
+                        
                         <NavbarNav right>
                           <NavItem>
                             <form className="form-inline md-form mt-0">
