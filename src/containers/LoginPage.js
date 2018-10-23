@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router, Redirect  } from 'react-router-dom';
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
 import "./LoginPage.css";
 import NavbarFeatures from './NavBarFeatures';
 import CryptoJS from 'cryptojs';
+import Background from './images/stevie.jpg';
 
 
 class LoginPage extends Component {
@@ -24,6 +25,8 @@ class LoginPage extends Component {
   userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
+
+  
 
   state = {
     isLoading: true,
@@ -77,17 +80,15 @@ class LoginPage extends Component {
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.setRequestHeader('Access-Control-Allow-Origin','*');
         xhttp.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, HEAD');
-        xhttp.responseType = 'json';
+        xhttp.responseType = 'text';
         xhttp.send(user);
         xhttp.onload = ()=>{
-          console.log(xhttp.response.role);
-          console.log(xhttp.response.id)
+          console.log(xhttp.responseText);
+          // console.log(xhttp.response.id)
 
           xhttp.response.valueOf()          
-          this.setState({ redirectPath: xhttp.response.role });
-          this.setState({ userId: xhttp.response.id });
-
-
+          this.setState({ redirectPath: xhttp.responseText });
+          // this.setState({ userId: xhttp.response.id });
         }
         
         // alert("Logged in");
@@ -96,8 +97,20 @@ class LoginPage extends Component {
       }
        
     }
-
     render() { 
+      var divStyle = {
+        color: 'white',
+        margin: 'auto',
+        padding: '5%',
+        width: '510px'
+      };
+
+      var bgStyle = {
+        width: '100%',
+        height: '1920px',
+        backgroundImage: "url(" + Background + ")",
+        color: 'white'
+      };
 
       const {people, isLoading} = this.state;
 
@@ -109,23 +122,26 @@ class LoginPage extends Component {
       var redirectPath = this.state.redirectPath;
       console.log(this.state);
       console.log(redirectPath);
-      if (redirectPath === "Trainer") {
+      if (redirectPath === "trainer") {
         return <Redirect to="/Trainer" />;
       }
-      if (redirectPath === "Trainee") {
+      if (redirectPath === "trainee") {
         return <Redirect to="/Trainee" />;
       }
 
         return ( 
-          <div className="MainPage">
+          <div style={bgStyle}>
 
           <NavbarFeatures class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
           </NavbarFeatures>
 
           <h2>Login</h2>
           
-          <div className="Login">
-            <form onSubmit={this.handleSubmit}>
+          <div style={divStyle} >
+          
+            <form id="loginFormId" onSubmit={this.handleSubmit}>
+            <Form>
+            <div className="form-outline md-form mt-0">
               <FormGroup controlId="email" bsSize="sm">
                 <ControlLabel>Email</ControlLabel>
                 <FormControl
@@ -144,6 +160,8 @@ class LoginPage extends Component {
                   type="password"
                 />
               </FormGroup>
+              
+              
               <Button
                 block
                 bsSize="large"
@@ -152,8 +170,18 @@ class LoginPage extends Component {
               >
               Login
               </Button>
+              </div>
+              </Form>
+              
+            
+              {/* <NavItem>
+                            <form className="form-inline md-form mt-0">
+                              <input className="form-control mr-sm-2 mb-0 text-black" type="text" placeholder="Search" aria-label="Search"/>
+                            </form>
+                          </NavItem> */}
+   
             </form>
-          </div>
+            </div>
         </div>
          );
     }

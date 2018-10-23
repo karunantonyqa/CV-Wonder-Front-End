@@ -62,6 +62,14 @@ class AddUser extends Component {
         }
       }
       render() {
+
+        var divStyle = {
+            color: 'blue',
+            margin: 'auto',
+            padding: '5%',
+            width: '510px'
+          };
+
           return (
             <div className="Register">
                 <NavbarFeatures class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
@@ -69,7 +77,7 @@ class AddUser extends Component {
 
                 <form onSubmit={this.handleSubmit}>
 
-                <div className="registerForm">
+                <div style={divStyle} className="registerForm">
 
                 <FormGroup controlId="name" bsSize="sm">
                     <ControlLabel>Name</ControlLabel>

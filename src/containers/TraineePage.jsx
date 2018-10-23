@@ -16,30 +16,29 @@ class TraineePage extends Component {
           <h1>**TRAINEE**</h1>
           <Grid>
             <Row className="show-grid">
+
               <Col xs={6} md={4}>
                 <code>
-                  <ProfilePage />
+                  <ProfilePage></ProfilePage> 
                 </code>
               </Col>
 
               <Col xs={12} md={8}>
                 <code>
                   <p>UPLOAD CV, other stuff here</p>
-
-                  
                 </code>
-
-                
               </Col>
+
             </Row>
           </Grid>
 
-            <form>
-                    <div class="form-group">
-                    <label for="exampleFormControlFile1">Example file input</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
-                    </div>
-            </form>
+
+            {/* <form>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+              </div>
+            </form> */}
 
         </div>
       </div>

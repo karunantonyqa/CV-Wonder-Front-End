@@ -11,17 +11,11 @@ class ProfilePage extends Component {
 
   componentDidMount() {
     let request = new XMLHttpRequest();
-
     request.open("GET", "http://192.168.1.117:8090/api/people");
-
     request.setRequestHeader("Content-Type", "application/json");
-
     request.setRequestHeader("Access-Control-Allow-Origin", "*");
-
     request.responseType = "json";
-
     request.send();
-
     request.onload = () => {
       this.setState({ allPeople: request.response });
     };
