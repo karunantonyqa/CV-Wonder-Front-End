@@ -40,13 +40,13 @@ class AddUser extends Component {
         var roleSelected = role.options[role.selectedIndex].value;
      
      
-        const url = "http://192.168.1.117:8090/api/people"
+        const url = "http://localhost:8090/api/people"
        
         var user = JSON.stringify({
           "email": emailstr,
           "name": name,
           "role": roleSelected,
-          "password":CryptoJS.MD5(passstr).toString()
+          "password":passstr
         })
        
         let xhttp = new XMLHttpRequest();
