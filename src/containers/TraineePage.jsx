@@ -1,17 +1,50 @@
-import React, { Component } from 'react';
-import NavbarFeatures from './NavBarFeatures';
+import React, { Component } from "react";
+import NavbarFeatures from "./NavBarFeatures";
+import ProfilePage from "../containers/ProfilePage";
+import { Table, Grid, Row, Col, Clearfix } from "react-bootstrap";
 
+// import ProfilePage from "./containers/ProfilePage";
 class TraineePage extends Component {
-    state = {  }
-    render() { 
-        return ( 
-            <div className="TraineePage">
-                <NavbarFeatures class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
-                </NavbarFeatures>
+  render() {
+    return (
+      <div className="TraineePage">
+        <NavbarFeatures
+          class="p-3 mb-2 bg-dark text-white"
+          className="NavBarMain1"
+        />
+        <div>
+          <h1>**TRAINEE**</h1>
+          <Grid>
+            <Row className="show-grid">
+              <Col xs={6} md={4}>
+                <code>
+                  <ProfilePage />
+                </code>
+              </Col>
+
+              <Col xs={12} md={8}>
+                <code>
+                  <p>UPLOAD CV, other stuff here</p>
+
+                  
+                </code>
+
                 
-            </div>
-             );
-    }
+              </Col>
+            </Row>
+          </Grid>
+
+            <form>
+                    <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+                    </div>
+            </form>
+
+        </div>
+      </div>
+    );
+  }
 }
- 
+
 export default TraineePage;

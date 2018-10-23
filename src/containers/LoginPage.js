@@ -45,14 +45,14 @@ class LoginPage extends Component {
         });
     }
 
-    handleClick(event){
-      var apiBaseUrl = "http://localhost:3000/api/login";
-      var self = this;
-      var payload={
-      "email":this.state.username,
-      "password":this.state.password
-      }
-    }
+    // handleClick(event){
+    //   var apiBaseUrl = "http://192.168.1.117:3000/api/login";
+    //   var self = this;
+    //   var payload={
+    //   "email":this.state.username,
+    //   "password":this.state.password
+    //   }
+    // }
     
     handleSubmit = event => {
       event.preventDefault();

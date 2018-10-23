@@ -24,25 +24,29 @@ class AddUser extends Component {
         return this.state.emailstr.length > 0 && this.state.passstr.length > 0;
     }
 
+    handleChange = event => {
+        this.setState({
+          [event.target.id]: event.target.value
+        });
+    }
+
 
     handleSubmit(event) {
-        var emailstr =  document.getElementById('emailStr').value;
-        var passstr = document.getElementById('passStr').value;
+        var emailstr =  document.getElementById('emailstr').value;
+        var passstr = document.getElementById('passstr').value;
         var name = document.getElementById('name').value;
-        var role = document.getElementById('roleSelect').value;
-        var city = document.getElementById('city').value;
+
+        var role = document.getElementById('roleSelect');
+        var roleSelected = role.options[role.selectedIndex].value;
      
      
-        const url = "http://localhost:8090/api/people"
+        const url = "http://192.168.1.117:8090/api/people"
        
         var user = JSON.stringify({
           "email": emailstr,
           "name": name,
-          "role": role,
-          "password":CryptoJS.MD5(passstr).toString(),
-          "cv": " ",
-          "state": city,
-          "docType": null
+          "role": roleSelected,
+          "password":CryptoJS.MD5(passstr).toString()
         })
        
         let xhttp = new XMLHttpRequest();
@@ -55,7 +59,7 @@ class AddUser extends Component {
      
         xhttp.onload = ()=>{
          console.log(xhttp.responseText);
-          }
+        }
       }
       render() {
           return (
@@ -65,32 +69,34 @@ class AddUser extends Component {
 
                 <form onSubmit={this.handleSubmit}>
 
+                <div className="registerForm">
+
                 <FormGroup controlId="name" bsSize="sm">
                     <ControlLabel>Name</ControlLabel>
                     <FormControl
-                        autoFocus
+                        
                         type="name"
                         value={this.state.name}
                         onChange={this.handleChange}
                      />
                 </FormGroup>
                 
-                <FormGroup controlId="emailStr" bsSize="sm">
+                <FormGroup controlId="emailstr" bsSize="sm">
                     <ControlLabel>Email</ControlLabel>
                     <FormControl
-                         type="emailStr"
+                         type="email"
                          value={this.state.emailstr}
                          onChange={this.handleChange}
                      />
                 </FormGroup>
                 
-                <FormGroup controlId="passStr" bsSize="sm">
-                    <ControlLabel>Password</ControlLabel>
-                     <FormControl
-                        value={this.state.passstr}
-                        onChange={this.handleChange}
-                        type="passStr"
-                    />
+                <FormGroup controlId="passstr" bsSize="sm">
+                <ControlLabel>Password</ControlLabel>
+                <FormControl
+                  value={this.state.passstr}
+                  onChange={this.handleChange}
+                  type="password"
+                />
                 </FormGroup>
 
 
@@ -111,6 +117,7 @@ class AddUser extends Component {
                     >
                     Register
                 </Button>
+                </div>
         </form>
       </div>
 
