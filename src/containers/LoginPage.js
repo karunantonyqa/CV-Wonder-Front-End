@@ -50,7 +50,7 @@ class LoginPage extends Component {
     }
 
     // handleClick(event){
-    //   var apiBaseUrl = "http://192.168.1.117:3000/api/login";
+    //   var apiBaseUrl = "http://localhost:3000/api/login";
     //   var self = this;
     //   var payload={
     //   "email":this.state.username,
@@ -64,7 +64,7 @@ class LoginPage extends Component {
       var emailstr =  document.getElementById('email').value;
       var password = document.getElementById('password').value;
     
-      const url = "http://192.168.1.117:8090/api/login";
+      const url = "http://localhost:8090/api/login";
       
       var user = JSON.stringify({
           "email":emailstr,
