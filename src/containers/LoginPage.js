@@ -3,9 +3,9 @@ import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLi
 import { BrowserRouter as Router, Redirect  } from 'react-router-dom';
 import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
 import "./LoginPage.css";
-import NavbarFeatures from './NavBarFeatures';
 import CryptoJS from 'cryptojs';
-import Background from './images/stevie.jpg';
+import Background from '../components/images/bg1.jpg';
+import NavbarSimple from '../components/navbars/NavBarSimple';
 
 
 class LoginPage extends Component {
@@ -35,7 +35,7 @@ class LoginPage extends Component {
 
   async componentDidMount() {
     const response = await fetch('/api/people');
-    const body = await response.json();
+    const body = await response.text();
     this.setState({ people: body, isLoading: false });
   }
 
@@ -64,7 +64,7 @@ class LoginPage extends Component {
       var emailstr =  document.getElementById('email').value;
       var password = document.getElementById('password').value;
     
-      const url = "http://localhost:8090/api/login";
+      const url = "http://192.168.1.117:8090/api/login";
       
       var user = JSON.stringify({
           "email":emailstr,
@@ -132,8 +132,8 @@ class LoginPage extends Component {
         return ( 
           <div style={bgStyle}>
 
-          <NavbarFeatures class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
-          </NavbarFeatures>
+          <NavbarSimple class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
+          </NavbarSimple>
 
           <h2>Login</h2>
           

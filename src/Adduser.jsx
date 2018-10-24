@@ -13,7 +13,7 @@ class Adduser extends Component {
     var state = document.getElementById('state').value;
 
  
-    const url = "http://localhost:8090/api/people"
+    const url = "http://192.168.1.117:8090/api/people"
     
     var user = JSON.stringify({
       "email": emailstr,

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavbarFeatures from "./NavBarFeatures";
+import NavBarTrainee from "../components/navbars/NavBarTrainee";
 import ProfilePage from "../containers/ProfilePage";
 import { Table, Grid, Row, Col, Clearfix } from "react-bootstrap";
 
@@ -8,7 +8,7 @@ class TraineePage extends Component {
   render() {
     return (
       <div className="TraineePage">
-        <NavbarFeatures
+        <NavBarTrainee
           class="p-3 mb-2 bg-dark text-white"
           className="NavBarMain1"
         />
@@ -31,14 +31,6 @@ class TraineePage extends Component {
 
             </Row>
           </Grid>
-
-
-            {/* <form>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Example file input</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
-              </div>
-            </form> */}
 
         </div>
       </div>

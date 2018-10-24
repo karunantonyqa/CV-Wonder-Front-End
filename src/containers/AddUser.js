@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CryptoJS from 'cryptojs';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import NavbarFeatures from './NavBarFeatures';
+import NavBarAdmin from '../components/navbars/NavBarAdmin';
 
 class AddUser extends Component {   
 
@@ -40,7 +40,7 @@ class AddUser extends Component {
         var roleSelected = role.options[role.selectedIndex].value;
      
      
-        const url = "http://localhost:8090/api/people"
+        const url = "http://192.168.1.117:8090/api/people"
        
         var user = JSON.stringify({
           "email": emailstr,
@@ -72,8 +72,8 @@ class AddUser extends Component {
 
           return (
             <div className="Register">
-                <NavbarFeatures class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
-                </NavbarFeatures>
+                <NavBarAdmin class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
+                </NavBarAdmin>
 
                 <form onSubmit={this.handleSubmit}>
 

@@ -41,7 +41,7 @@ componentDidMount() {
     var emailstr =  document.getElementById('uname').value;
     var passstr = document.getElementById('pword').value;
  
-    const url = "http://localhost:8090/api/login"
+    const url = "http://192.168.1.117:8090/api/login"
     
     var user = JSON.stringify({
         "email":emailstr,
