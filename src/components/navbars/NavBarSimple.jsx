@@ -42,7 +42,8 @@ export default class NavBarSimple extends React.Component {
         }
 
         var navBarStyle = {
-            color: '#FFA07A'
+            color: '#FFA07A',
+            fontSize: '18pt'
         }
 
         var profileImgContainer = {
@@ -75,18 +76,14 @@ export default class NavBarSimple extends React.Component {
             <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain" style={navBarStyle}>
         
                 <Navbar className="navbar fixed-top " expand="md" scrolling style={navBarStyle}>
-                    <NavbarBrand href="/">
-                        <div style={navStyle}><div style={logoStyle}>
-          <TouchableHighlight
-          style={profileImgContainer} 
-           >
-        <Image source={{uri : "https://imgur.com/XBz3oyv.png"}} style={profileImg} />
-        </TouchableHighlight>
-          </div></div>
-                    </NavbarBrand>
+                    
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
                         
+                    <NavbarNav center>
+                        <NavbarBrand href="/">
+                        <div style={navStyle}><strong>CV Wonder</strong></div>
+                        </NavbarBrand></NavbarNav>
                         <NavbarNav right>
 
 

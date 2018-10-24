@@ -68,9 +68,7 @@ export default class NavbarAdmin extends React.Component {
 
             
                 <Navbar color="blue-grey lighten-5" expand="md" scrolling>
-                    <NavbarBrand href="/">
-                        <strong>CV Wonder</strong>
-                    </NavbarBrand>
+                    
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
                         
@@ -80,6 +78,11 @@ export default class NavbarAdmin extends React.Component {
                               <NavLink to="/AddUser">Add User</NavLink>
                           </NavItem>                          
                         </NavbarNav>
+
+                        <NavbarNav center>
+                        <NavbarBrand href="/">
+                        <div style={navStyle}><strong>CV Wonder</strong></div>
+                        </NavbarBrand></NavbarNav>
                         
                         
                         

@@ -2,11 +2,27 @@ import React, { Component } from "react";
 import NavBarTrainee from "../components/navbars/NavBarTrainee";
 import ProfilePage from "../containers/ProfilePage";
 import { Table, Grid, Row, Col, Clearfix } from "react-bootstrap";
+import Background from '../components/images/brick.jpg';
+
 
 // import ProfilePage from "./containers/ProfilePage";
 class TraineePage extends Component {
   render() {
+
+
+    var bgStyle = {
+      width: '100%',
+      height: '969px',
+      backgroundImage: "url(" + Background + ")",
+      backgroundRepeat  : 'no-repeat',
+      // backgroundPosition: 'center',
+      backgroundSize: "cover",
+      color: 'black'
+    };
     return (
+
+
+      <div className="backgroundTrainee" style={bgStyle}>
       <div className="TraineePage">
         <NavBarTrainee
           class="p-3 mb-2 bg-dark text-white"
@@ -33,6 +49,7 @@ class TraineePage extends Component {
           </Grid>
 
         </div>
+      </div>
       </div>
     );
   }

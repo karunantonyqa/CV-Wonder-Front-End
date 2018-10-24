@@ -67,9 +67,7 @@ export default class NavBarTrainee extends React.Component {
 
             
                 <Navbar color="blue-grey lighten-5" expand="md" scrolling>
-                    <NavbarBrand href="/">
-                        <strong>CV Wonder</strong>
-                    </NavbarBrand>
+                   
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
                         
@@ -77,6 +75,12 @@ export default class NavBarTrainee extends React.Component {
 
                                                  
                         </NavbarNav>
+
+                        <NavbarNav center>
+                        <NavbarBrand href="/">
+                        <div style={navStyle}><strong>CV Wonder</strong></div>
+                        </NavbarBrand></NavbarNav>
+
                         
                         
                         
