@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Redirect  } from 'react-router-dom';
 import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
 import "./LoginPage.css";
 import CryptoJS from 'cryptojs';
-import Background from '../components/images/bg1.jpg';
+import Background from '../components/images/bg7.jpg';
 import NavbarSimple from '../components/navbars/NavBarSimple';
 
 
@@ -109,6 +109,9 @@ class LoginPage extends Component {
         width: '100%',
         height: '1920px',
         backgroundImage: "url(" + Background + ")",
+        backgroundRepeat  : 'no-repeat',
+        // backgroundPosition: 'center',
+        backgroundSize: "stretch",
         color: 'white'
       };
 
