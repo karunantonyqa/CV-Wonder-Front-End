@@ -22,6 +22,36 @@ export default class NavbarAdmin extends React.Component {
 
     render() {
 
+
+        var navStyle = {
+            color: '#AB5050'
+        }
+
+        var navBarStyle = {
+            color: '#FFA07A'
+        }
+
+        var profileImgContainer = {
+            marginLeft: 8,
+            height: 150,
+            width: 80,
+            borderRadius: 40,
+          }
+    
+          var profileImg = {
+            height: 150,
+            width: 150,
+            borderRadius: 2000,
+            padding: "40%"
+          }
+    
+          var logoStyle = {
+            height: '100px',
+            width: '200px',
+            
+            
+          }
+
         var redirectPath = this.state.redirectPath;
         console.log(this.state);
         console.log(redirectPath);
@@ -34,7 +64,7 @@ export default class NavbarAdmin extends React.Component {
 
 
         return (
-            <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain">
+            <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain" style={navBarStyle}>
 
             
                 <Navbar color="blue-grey lighten-5" expand="md" scrolling>

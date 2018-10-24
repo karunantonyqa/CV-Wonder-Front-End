@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router, Route, Redirect, Link, Switch } from 'react-router-dom';
 import Product from '../../Product';
+import {TouchableHighlight, Image} from 'react-native';
+
 // import {LinkContainer} from 'react-router-bootstrap';
 
 
@@ -35,15 +37,52 @@ export default class NavBarSimple extends React.Component {
           return <Redirect to="/Trainee" />;
         }
 
+        var navStyle = {
+            color: 'black'
+        }
+
+        var navBarStyle = {
+            color: '#FFA07A'
+        }
+
+        var profileImgContainer = {
+            marginLeft: 8,
+            height: 150,
+            width: 80,
+            borderRadius: 40,
+          }
+    
+          var profileImg = {
+            height: 150,
+            width: 150,
+            borderRadius: 200
+
+          }
+    
+          var logoStyle = {
+            height: '100px',
+            width: '200px',
+            
+            
+          }
+
 
         return (
-            <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain">
-            
 
-            
-                <Navbar color="blue-grey lighten-5" expand="md" scrolling>
+                
+
+
+            <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain" style={navBarStyle}>
+        
+                <Navbar className="navbar fixed-top " expand="md" scrolling style={navBarStyle}>
                     <NavbarBrand href="/">
-                        <strong>CV Wonder</strong>
+                        <div style={navStyle}><div style={logoStyle}>
+          <TouchableHighlight
+          style={profileImgContainer} 
+           >
+        <Image source={{uri : "https://imgur.com/XBz3oyv.png"}} style={profileImg} />
+        </TouchableHighlight>
+          </div></div>
                     </NavbarBrand>
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
@@ -59,8 +98,8 @@ export default class NavBarSimple extends React.Component {
                         </ul>
                         </nav> */}
 
-                        <NavItem>
-                              <Link to="/Product">Contact</Link>
+                        <NavItem >
+                              <Link to="/Product"><div style={navStyle}>Contact</div></Link>
                         </NavItem>
                         </NavbarNav>
                     </Collapse>

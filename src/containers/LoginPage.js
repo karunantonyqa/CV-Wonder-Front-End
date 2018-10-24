@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import {TouchableHighlight, Image} from 'react-native';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router, Redirect  } from 'react-router-dom';
 import { Button, FormGroup, FormControl, ControlLabel, Form } from "react-bootstrap";
 import "./LoginPage.css";
 import CryptoJS from 'cryptojs';
-import Background from '../components/images/bg7.jpg';
+import Background from '../components/images/bg8.jpg';
 import NavbarSimple from '../components/navbars/NavBarSimple';
 
 
@@ -99,21 +100,29 @@ class LoginPage extends Component {
     }
     render() { 
       var divStyle = {
-        color: 'white',
+        color: 'black',
+        fontWeight: 'bold',
         margin: 'auto',
         padding: '5%',
         width: '510px'
       };
 
+      var titleStyle = {
+        color: 'black',
+        padding: '10%'
+      }
+
       var bgStyle = {
         width: '100%',
-        height: '1920px',
+        height: '969px',
         backgroundImage: "url(" + Background + ")",
         backgroundRepeat  : 'no-repeat',
         // backgroundPosition: 'center',
-        backgroundSize: "stretch",
-        color: 'white'
+        backgroundSize: "cover",
+        color: 'black'
       };
+
+
 
       const {people, isLoading} = this.state;
 
@@ -135,12 +144,19 @@ class LoginPage extends Component {
         return ( 
           <div style={bgStyle}>
 
-          <NavbarSimple class="p-3 mb-2 bg-dark text-white" className="NavBarMain1">
-          </NavbarSimple>
+          <NavbarSimple />
 
-          <h2>Login</h2>
+          
           
           <div style={divStyle} >
+
+          
+
+          <div style={titleStyle}>
+          
+
+          <h2>Login</h2>
+          </div>
           
             <form id="loginFormId" onSubmit={this.handleSubmit}>
             <Form>

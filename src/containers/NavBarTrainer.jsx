@@ -32,9 +32,38 @@ export default class NavbarFeatures extends React.Component {
           return <Redirect to="/Trainee" />;
         }
 
+        var navStyle = {
+            color: '#AB5050'
+        }
+
+        var navBarStyle = {
+            color: '#FFA07A'
+        }
+
+        var profileImgContainer = {
+            marginLeft: 8,
+            height: 150,
+            width: 80,
+            borderRadius: 40,
+          }
+    
+          var profileImg = {
+            height: 150,
+            width: 150,
+            borderRadius: 2000,
+            padding: "40%"
+          }
+    
+          var logoStyle = {
+            height: '100px',
+            width: '200px',
+            
+            
+          }
+
 
         return (
-            <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain">
+            <div class="p-3 mb-2 bg-dark text-white" className="NavBarMain" style={navBarStyle}>
 
             
                 <Navbar color="blue-grey lighten-5" expand="md" scrolling>
